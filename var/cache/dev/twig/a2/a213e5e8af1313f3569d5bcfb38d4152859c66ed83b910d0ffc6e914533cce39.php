@@ -173,6 +173,6 @@ class __TwigTemplate_9b42635dd88f37bdcaedf0abf6652dc2dc230533e7b9f603b4a6f74adf1
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\wamp64\\www\\marvenz-burns\\templates\\base.html.twig");
+", "base.html.twig", "G:\\wamp64\\www\\marvenz-burns\\templates\\base.html.twig");
     }
 }
