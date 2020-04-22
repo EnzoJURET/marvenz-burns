@@ -434,6 +434,6 @@ class __TwigTemplate_d5c3936922209491056c292cf590bdc29fb5b92205931884e4daf897f3d
         {% endif %}
     </div>
 {% endblock %}
-", "@WebProfiler/Collector/http_client.html.twig", "C:\\wamp64\\www\\marvenz-burns\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\http_client.html.twig");
+", "@WebProfiler/Collector/http_client.html.twig", "G:\\wamp64\\www\\marvenz-burns\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\http_client.html.twig");
     }
 }

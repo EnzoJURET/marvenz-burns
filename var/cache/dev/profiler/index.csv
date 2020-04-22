@@ -4,3 +4,5 @@ db0afc,::1,GET,http://localhost:8000/favicon.ico,1587557690,00840c,404
 4f73b2,::1,GET,http://localhost:8000/home,1587557717,53ac54,404
 53ac54,::1,GET,http://localhost:8000/home,1587557717,,404
 274f91,::1,GET,http://localhost:8000/,1587557724,,404
+8642fd,127.0.0.1,GET,http://127.0.0.1:8000/,1587559958,,404
+e637b4,127.0.0.1,GET,http://127.0.0.1:8000/,1587559962,,404
