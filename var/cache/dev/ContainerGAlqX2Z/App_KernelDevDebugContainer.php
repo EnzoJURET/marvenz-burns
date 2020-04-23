@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerWN5QxUd;
+namespace ContainerGAlqX2Z;
 
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
@@ -39,7 +39,7 @@ class App_KernelDevDebugContainer extends Container
             'kernel' => true,
         ];
         $this->methodMap = [
-            'App\\Controller\\ImageController' => 'getImageControllerService',
+            'App\\Controller\\SlideController' => 'getSlideControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService',
             'cache.app' => 'getCache_AppService',
@@ -411,16 +411,16 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the public 'App\Controller\ImageController' shared autowired service.
+     * Gets the public 'App\Controller\SlideController' shared autowired service.
      *
-     * @return \App\Controller\ImageController
+     * @return \App\Controller\SlideController
      */
-    protected function getImageControllerService()
+    protected function getSlideControllerService()
     {
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\framework-bundle\\Controller\\AbstractController.php';
-        include_once \dirname(__DIR__, 4).'\\src\\Controller\\ImageController.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Controller\\SlideController.php';
 
-        $this->services['App\\Controller\\ImageController'] = $instance = new \App\Controller\ImageController();
+        $this->services['App\\Controller\\SlideController'] = $instance = new \App\Controller\SlideController();
 
         $instance->setContainer((new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
             'doctrine' => ['services', 'doctrine', 'getDoctrineService', false],
@@ -448,7 +448,7 @@ class App_KernelDevDebugContainer extends Container
             'serializer' => '?',
             'session' => '?',
             'twig' => '?',
-        ]))->withContext('App\\Controller\\ImageController', $this));
+        ]))->withContext('App\\Controller\\SlideController', $this));
 
         return $instance;
     }
