@@ -23,8 +23,16 @@ class SlideController extends AbstractController
             ->getRepository(Slide::class)
             ->findAll();
 
+        if (empty($slides)) {
+            $slide_empty=1;
+        }
+        else {
+            $slide_empty=0;   
+        }
+
         return $this->render('slide/index.html.twig', [
             'slides' => $slides,
+            'slide_empty' => $slide_empty,
         ]);
     }
 
