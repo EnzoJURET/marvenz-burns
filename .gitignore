@@ -1,2 +1,2 @@
-var/cache
-var/log/dev.log
+/var/cache
+/var/log/dev.log
