@@ -15,6 +15,10 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
-    'image' => [[], ['_controller' => 'App\\Controller\\ImageController::index'], [], [['text', '/image']], [], []],
-    'slide' => [[], ['_controller' => 'App\\Controller\\SlideController::index'], [], [['text', '/slide']], [], []],
+    'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], []],
+    'slide_index' => [[], ['_controller' => 'App\\Controller\\SlideController::index'], [], [['text', '/slide/']], [], []],
+    'slide_new' => [[], ['_controller' => 'App\\Controller\\SlideController::new'], [], [['text', '/slide/new']], [], []],
+    'slide_show' => [['idSlide'], ['_controller' => 'App\\Controller\\SlideController::show'], [], [['variable', '/', '[^/]++', 'idSlide', true], ['text', '/slide']], [], []],
+    'slide_edit' => [['idSlide'], ['_controller' => 'App\\Controller\\SlideController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idSlide', true], ['text', '/slide']], [], []],
+    'slide_delete' => [['idSlide'], ['_controller' => 'App\\Controller\\SlideController::delete'], [], [['variable', '/', '[^/]++', 'idSlide', true], ['text', '/slide']], [], []],
 ];

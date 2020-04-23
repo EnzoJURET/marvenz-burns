@@ -13,8 +13,9 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/image' => [[['_route' => 'image', '_controller' => 'App\\Controller\\ImageController::index'], null, null, null, false, false, null]],
-        '/slide' => [[['_route' => 'slide', '_controller' => 'App\\Controller\\SlideController::index'], null, null, null, false, false, null]],
+        '/home' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/slide' => [[['_route' => 'slide_index', '_controller' => 'App\\Controller\\SlideController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/slide/new' => [[['_route' => 'slide_new', '_controller' => 'App\\Controller\\SlideController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -33,6 +34,11 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/slide/([^/]++)(?'
+                    .'|(*:187)'
+                    .'|/edit(*:200)'
+                    .'|(*:208)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -42,8 +48,11 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        187 => [[['_route' => 'slide_show', '_controller' => 'App\\Controller\\SlideController::show'], ['idSlide'], ['GET' => 0], null, false, true, null]],
+        200 => [[['_route' => 'slide_edit', '_controller' => 'App\\Controller\\SlideController::edit'], ['idSlide'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        208 => [
+            [['_route' => 'slide_delete', '_controller' => 'App\\Controller\\SlideController::delete'], ['idSlide'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

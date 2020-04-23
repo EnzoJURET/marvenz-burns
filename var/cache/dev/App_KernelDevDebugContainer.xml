@@ -302,12 +302,22 @@
     <service id="kernel" class="App\Kernel" public="true" synthetic="true">
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\HomeController"/>
+      </call>
+    </service>
     <service id="App\Controller\SlideController" class="App\Controller\SlideController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\SlideController"/>
       </call>
+    </service>
+    <service id="App\Form\SlideType" class="App\Form\SlideType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener" public="false">
@@ -705,9 +715,11 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\SlideType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1031,7 +1043,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.SFX6J7Y"/>
+      <argument type="service" id=".service_locator.Xw_KXqQ"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4539,9 +4551,14 @@
       <tag name="maker.command"/>
       <argument>G:\wamp64\www\marvenz-burns</argument>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SlideController" class="App\Controller\SlideController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SlideController" class="App\Controller\SlideController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SlideController" class="App\Controller\SlideController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SlideType" class="App\Form\SlideType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SlideType" class="App\Form\SlideType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4752,9 +4769,22 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.I3K77mT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.wQR_lXi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="slide" type="service" id=".errored..service_locator.wQR_lXi.App\Entity\Slide"/>
+      </argument>
+    </service>
+    <service id=".service_locator.RkUQGK8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\SlideController::delete" type="service" id=".service_locator.wQR_lXi"/>
+        <argument key="App\Controller\SlideController::edit" type="service" id=".service_locator.wQR_lXi"/>
+        <argument key="App\Controller\SlideController::show" type="service" id=".service_locator.wQR_lXi"/>
+        <argument key="App\Controller\SlideController:delete" type="service" id=".service_locator.wQR_lXi"/>
+        <argument key="App\Controller\SlideController:edit" type="service" id=".service_locator.wQR_lXi"/>
+        <argument key="App\Controller\SlideController:show" type="service" id=".service_locator.wQR_lXi"/>
+      </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -4815,9 +4845,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.SFX6J7Y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Xw_KXqQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\SlideType" type="service" id="App\Form\SlideType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -4834,6 +4865,10 @@
       <argument type="collection">
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
+    </service>
+    <service id=".service_locator.I3K77mT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
     </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
       <argument type="service" id="security.access.authenticated_voter"/>
@@ -5031,6 +5066,12 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
+      <argument>App\Controller\HomeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\SlideController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SlideController"/>
       <argument>App\Controller\SlideController</argument>
@@ -5176,12 +5217,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.RkUQGK8"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.I3K77mT"/>
+      <argument type="service" id=".service_locator.RkUQGK8"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5191,6 +5232,7 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.wQR_lXi.App\Entity\Slide" class="App\Entity\Slide"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.zzD.F5Z"/>
       <argument type="collection">
@@ -5557,7 +5599,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.I3K77mT"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.RkUQGK8"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

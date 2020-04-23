@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Slide{% endblock %}
+
+{% block body %}
+    <h1>Slide</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdSlide</th>
+                <td>{{ slide.idSlide }}</td>
+            </tr>
+            <tr>
+                <th>TitreSlide</th>
+                <td>{{ slide.titreSlide }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('slide_index') }}">back to list</a>
+
+    <a href="{{ path('slide_edit', {'idSlide': slide.idSlide}) }}">edit</a>
+
+    {{ include('slide/_delete_form.html.twig') }}
+{% endblock %}
