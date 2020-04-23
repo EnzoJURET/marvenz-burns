@@ -38,8 +38,10 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('slide_new') }}">
-        <button type="submit" class="btn btn-primary" >Créé une nouvelle slide</button>
-    </a>
+    {% if slide_empty == "1" %}
+        <a href="{{ path('slide_new') }}">
+            <button type="submit" class="btn btn-primary" >Créé une nouvelle slide</button>
+        </a>
+    {% endif %}
 </div>
 {% endblock %}
