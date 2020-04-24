@@ -20,13 +20,15 @@
     <a href="{{ path('slide_index') }}">Retour a la liste</a>
 
     {{ include('slide/_delete_form.html.twig') }}
-    <form enctype="multipart/form-data" action="" method="post">
+    {# <form enctype="multipart/form-data" action="" method="post">
       <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
         Transfère le fichier
       <input type="file" name="monfichier" />
       <input type="submit" />
-    </form>
-    <?php uploadImage() ?>
+      
+    </form> #}
+    {# <a href="{{ path('image/new.html.twig') }}">Create new</a> #}
+    
 
 </div>
 {% endblock %}

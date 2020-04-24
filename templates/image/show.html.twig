@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image{% endblock %}
+
+{% block body %}
+    <h1>Image</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdImage</th>
+                <td>{{ image.idImage }}</td>
+            </tr>
+            <tr>
+                <th>LienImage</th>
+                <td>{{ image.lienImage }}</td>
+            </tr>
+            <tr>
+                <th>AltImage</th>
+                <td>{{ image.altImage }}</td>
+            </tr>
+            <tr>
+                <th>TitreImage</th>
+                <td>{{ image.titreImage }}</td>
+            </tr>
+            <tr>
+                <th>NumplaceImage</th>
+                <td>{{ image.numplaceImage }}</td>
+            </tr>
+            <tr>
+                <th>ValeurxRecDebut</th>
+                <td>{{ image.valeurxRecDebut }}</td>
+            </tr>
+            <tr>
+                <th>ValeuryRecDebut</th>
+                <td>{{ image.valeuryRecDebut }}</td>
+            </tr>
+            <tr>
+                <th>ValeurxRecFin</th>
+                <td>{{ image.valeurxRecFin }}</td>
+            </tr>
+            <tr>
+                <th>ValeuryRecFin</th>
+                <td>{{ image.valeuryRecFin }}</td>
+            </tr>
+            <tr>
+                <th>HauteurRecDebut</th>
+                <td>{{ image.hauteurRecDebut }}</td>
+            </tr>
+            <tr>
+                <th>HauteurRecFin</th>
+                <td>{{ image.hauteurRecFin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('image_index') }}">back to list</a>
+
+    <a href="{{ path('image_edit', {'idImage': image.idImage}) }}">edit</a>
+
+    {{ include('image/_delete_form.html.twig') }}
+{% endblock %}

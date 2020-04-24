@@ -38,7 +38,7 @@ class Slide
         return $this->titreSlide;
     }
 
-    public function setTitreSlide(string $titreSlide): self
+    public function setTitreSlide(string $titreSlide)
     {
         $this->titreSlide = $titreSlide;
 
