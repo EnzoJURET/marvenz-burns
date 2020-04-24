@@ -40,7 +40,8 @@ class ImageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $image->getLienImage();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $nom = $image->getTitreImage();
+            $fileName = $nom.'.'.uniqid().'.'.$file->guessExtension();
             $file->move($this->getParameter('upload_directory'), $fileName);
             $entityManager = $this->getDoctrine()->getManager();
             $image->setLienImage($fileName);
