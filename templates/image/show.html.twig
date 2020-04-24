@@ -3,60 +3,32 @@
 {% block title %}Image{% endblock %}
 
 {% block body %}
-    <h1>Image</h1>
-
+<div class="example-wrapper">
+    <h1 class="text-center">IMAGE</h1>
+</div>
+<div class="col-sm-8 offset-2">
+    <hr>
+</div>
+<div class="col-sm-8 offset-2">
     <table class="table">
         <tbody>
             <tr>
-                <th>IdImage</th>
-                <td>{{ image.idImage }}</td>
+                <th>Image</th>
+                <td>
+                    <img class="img-slide" src="{{ asset('img/' ~ image.getLienImage) }}">
+                </td>
             </tr>
             <tr>
-                <th>LienImage</th>
-                <td>{{ image.lienImage }}</td>
-            </tr>
-            <tr>
-                <th>AltImage</th>
-                <td>{{ image.altImage }}</td>
-            </tr>
-            <tr>
-                <th>TitreImage</th>
+                <th>Nom de l'image</th>
                 <td>{{ image.titreImage }}</td>
-            </tr>
-            <tr>
-                <th>NumplaceImage</th>
-                <td>{{ image.numplaceImage }}</td>
-            </tr>
-            <tr>
-                <th>ValeurxRecDebut</th>
-                <td>{{ image.valeurxRecDebut }}</td>
-            </tr>
-            <tr>
-                <th>ValeuryRecDebut</th>
-                <td>{{ image.valeuryRecDebut }}</td>
-            </tr>
-            <tr>
-                <th>ValeurxRecFin</th>
-                <td>{{ image.valeurxRecFin }}</td>
-            </tr>
-            <tr>
-                <th>ValeuryRecFin</th>
-                <td>{{ image.valeuryRecFin }}</td>
-            </tr>
-            <tr>
-                <th>HauteurRecDebut</th>
-                <td>{{ image.hauteurRecDebut }}</td>
-            </tr>
-            <tr>
-                <th>HauteurRecFin</th>
-                <td>{{ image.hauteurRecFin }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('image_index') }}">back to list</a>
+    <a href="{{ path('image_index') }}">Retour a la liste</a>
 
-    <a href="{{ path('image_edit', {'idImage': image.idImage}) }}">edit</a>
+    <a href="{{ path('image_edit', {'idImage': image.idImage}) }}">Enregistrer</a>
 
     {{ include('image/_delete_form.html.twig') }}
+</div>
 {% endblock %}

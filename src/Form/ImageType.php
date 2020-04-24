@@ -17,16 +17,8 @@ class ImageType extends AbstractType
             ->add('lienImage', FileType::class, array(
                 'label' => "Choisir votre image"
             ))
-            /* ->add('altImage')
             ->add('titreImage')
-            ->add('numplaceImage')
-            ->add('valeurxRecDebut')
-            ->add('valeuryRecDebut')
-            ->add('valeurxRecFin')
-            ->add('valeuryRecFin')
-            ->add('hauteurRecDebut')
-            ->add('hauteurRecFin')
-            ->add('idSlide') */
+            ->add('idSlide')
         ;
     }
 
