@@ -3,8 +3,17 @@
 {% block title %}Image index{% endblock %}
 
 {% block body %}
-    <h1>Image index</h1>
-
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="example-wrapper">
+    <h1 class="text-center">IMAGE</h1>
+</div>
+<div class="col-sm-8 offset-2">
+    <hr>
+</div>
+<div class="col-sm-12">
     <table class="table">
         <thead>
             <tr>
@@ -43,11 +52,13 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="12">no records found</td>
+                <td colspan="12">Pas de résultats</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('image_new') }}">Create new</a>
+</div>
+<a href="{{ path('image_new') }}">
+    <button type="submit" class="btn btn-primary" >Créé une nouvelle image</button>
+</a>
 {% endblock %}

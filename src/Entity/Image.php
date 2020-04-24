@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Image
  *
  * @ORM\Table(name="image", indexes={@ORM\Index(name="image_slide_FK", columns={"id_slide"})})
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Image
 {
@@ -106,18 +109,18 @@ class Image
         return $this->idImage;
     }
 
-    public function getLienImage(): ?string
+    public function getLienImage()
     {
         return $this->lienImage;
     }
 
-    public function setLienImage(string $lienImage): self
+    public function setLienImage($lienImage): self
     {
         $this->lienImage = $lienImage;
 
         return $this;
     }
-
+    
     public function getAltImage(): ?string
     {
         return $this->altImage;

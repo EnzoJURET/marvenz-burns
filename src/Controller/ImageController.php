@@ -33,12 +33,17 @@ class ImageController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
         $image = new Image();
         $form = $this->createForm(ImageType::class, $image);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $image->getLienImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'), $fileName);
             $entityManager = $this->getDoctrine()->getManager();
+            $image->setLienImage($fileName);
             $entityManager->persist($image);
             $entityManager->flush();
 
@@ -94,24 +99,4 @@ class ImageController extends AbstractController
 
         return $this->redirectToRoute('image_index');
     }
-    /* public function uploadImage(){
-        $image = new Image();
-        print("coucou");
-        print_r($_POST['upload']);
-        if( isset($_POST['upload'])){ // si formulaire soumis
-        $content_dir = './public/img/'; // dossier où sera déplacé le fichier
-        $tmp_file = $_FILES['fichier']['tmp_name'];
-        if( !is_uploaded_file($tmp_file) )
-        {
-            exit("Le fichier est introuvable");
-        }
-        // on copie le fichier dans le dossier de destination
-        $name_file = $_FILES['fichier']['name'];
-        if( !move_uploaded_file($tmp_file, $content_dir . $name_file) )
-        {
-            exit("Impossible de copier le fichier dans $content_dir");
-        }
-        echo "Le fichier a bien été uploadé";
-        }
-    } */
 }

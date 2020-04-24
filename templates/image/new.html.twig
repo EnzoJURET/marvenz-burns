@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Image{% endblock %}
+{% block title %}Nouvelle Image{% endblock %}
 
 {% block body %}
-    <h1>Create new Image</h1>
-
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="example-wrapper">
+    <h1 class="text-center">Créer une nouvelle Image</h1>
+</div>
+<hr>
+<div class="col-sm-8 offset-2 text-center">
     {{ include('image/_form.html.twig') }}
-
-    <a href="{{ path('image_index') }}">back to list</a>
+    <a href="{{ path('image_index') }}">Retour a la liste</a>
+</div>
 {% endblock %}
