@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Image
  *
  * @ORM\Table(name="image", indexes={@ORM\Index(name="image_slide_FK", columns={"id_slide"})})
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Image
 {

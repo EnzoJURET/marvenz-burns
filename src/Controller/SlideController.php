@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Slide;
+use App\Entity\Image;
 use App\Form\SlideType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

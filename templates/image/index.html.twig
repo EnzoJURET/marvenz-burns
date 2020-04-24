@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image index{% endblock %}
+
+{% block body %}
+    <h1>Image index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdImage</th>
+                <th>LienImage</th>
+                <th>AltImage</th>
+                <th>TitreImage</th>
+                <th>NumplaceImage</th>
+                <th>ValeurxRecDebut</th>
+                <th>ValeuryRecDebut</th>
+                <th>ValeurxRecFin</th>
+                <th>ValeuryRecFin</th>
+                <th>HauteurRecDebut</th>
+                <th>HauteurRecFin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.idImage }}</td>
+                <td>{{ image.lienImage }}</td>
+                <td>{{ image.altImage }}</td>
+                <td>{{ image.titreImage }}</td>
+                <td>{{ image.numplaceImage }}</td>
+                <td>{{ image.valeurxRecDebut }}</td>
+                <td>{{ image.valeuryRecDebut }}</td>
+                <td>{{ image.valeurxRecFin }}</td>
+                <td>{{ image.valeuryRecFin }}</td>
+                <td>{{ image.hauteurRecDebut }}</td>
+                <td>{{ image.hauteurRecFin }}</td>
+                <td>
+                    <a href="{{ path('image_show', {'idImage': image.idImage}) }}">show</a>
+                    <a href="{{ path('image_edit', {'idImage': image.idImage}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('image_new') }}">Create new</a>
+{% endblock %}
