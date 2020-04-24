@@ -18,7 +18,6 @@ class ImageType extends AbstractType
                 'label' => "Choisir votre image"
             ))
             ->add('titreImage')
-           /*  ->add('idSlide') */
         ;
     }
 

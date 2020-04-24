@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 24 avr. 2020 à 17:39
+-- Généré le :  ven. 24 avr. 2020 à 18:49
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `id_slide` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_image`),
   KEY `image_slide_FK` (`id_slide`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `image`
@@ -57,7 +57,8 @@ INSERT INTO `image` (`id_image`, `lien_image`, `alt_image`, `titre_image`, `numP
 (12, '7bb79ac4570ffa3415cc1c92c450ddc4.jpeg', NULL, 'paysage_neige', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (13, '82571f9f3cce8cafe3e37aea889bf206.jpeg', NULL, 'route', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (14, '2bd16e39c247a99b62c59bf7fb686a01.jpeg', NULL, 'the-of-us', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, '5289cedd1a67d141e5a94e2936e3b2df.jpeg', NULL, 'deadpool', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(15, '5289cedd1a67d141e5a94e2936e3b2df.jpeg', NULL, 'deadpool', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'wombat2.5ea334254b56c.jpeg', NULL, 'wombat2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -83,14 +84,14 @@ CREATE TABLE IF NOT EXISTS `slide` (
   `id_slide` int(11) NOT NULL AUTO_INCREMENT,
   `titre_slide` varchar(255) NOT NULL,
   PRIMARY KEY (`id_slide`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `slide`
 --
 
 INSERT INTO `slide` (`id_slide`, `titre_slide`) VALUES
-(25, 'sqddqsd');
+(26, 'test');
 
 --
 -- Contraintes pour les tables déchargées
