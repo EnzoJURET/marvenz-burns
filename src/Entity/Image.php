@@ -112,7 +112,7 @@ class Image
         return $this->lienImage;
     }
 
-    public function setLienImage($lienImage): self
+    public function setLienImage($lienImage)
     {
         $this->lienImage = $lienImage;
 
